@@ -16,8 +16,13 @@ jobs:
           go-version: '^1.13.1'
       - run: go version
 
-      - name: golangci-lint
-        uses: golangci/golangci-lint-action@v2
-        with:
-          skip-go-installation: true
+      # - name: golangci-lint
+      #   uses: golangci/golangci-lint-action@v2
+      #   with:
+      #     skip-go-installation: true
+
+      - name : Static check
+        run: |
+          go get honnef.co/go/tools/cmd/staticcheck
+           $(go env GOPATH)/bin/staticcheck ./...
 
