@@ -1,0 +1,1 @@
+# golanglint-githubactions-test
