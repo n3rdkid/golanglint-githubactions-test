@@ -2,7 +2,7 @@ package main
 
 import "log"
 
-func Testt() {
+func Test() {
 	log.Println("THIS IS INSDIE A MISTAKE")
 }
 
