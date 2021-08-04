@@ -21,3 +21,7 @@ jobs:
         with:
           skip-go-installation: true
 
+      # - name : Static check
+      #   run: go get honnef.co/go/tools/cmd/staticcheck
+      # - run: $(go env GOPATH)/bin/staticcheck ./...
+
