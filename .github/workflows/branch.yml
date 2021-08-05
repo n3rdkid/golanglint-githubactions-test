@@ -25,11 +25,11 @@ jobs:
         run: go get honnef.co/go/tools/cmd/staticcheck
       - run: $(go env GOPATH)/bin/staticcheck ./... 
 
-      - name : GO security check
-        run : go get -u github.com/securego/gosec/v2/cmd/gosec
-      - run : $(go env GOPATH)/bin/gosec ./... 
+      # - name : GO security check manually
+      #   run : go get -u github.com/securego/gosec/v2/cmd/gosec
+      # - run : $(go env GOPATH)/bin/gosec ./... 
 
-      # - name: Run Gosec Security Scanner
-      #   uses: securego/gosec@master
-      #   with:
-      #     args: $(go env GOPATH) ./...
+      - name: Run Gosec Security Scanner
+        uses: securego/gosec@master
+        with:
+          args: ./...
