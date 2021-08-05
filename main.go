@@ -4,11 +4,11 @@ import (
 	"log"
 )
 
-func Test(secret string) {
-	log.Println("THIS IS INSDIE A MISTAKE", secret)
+func Test() {
+	log.Println("THIS IS INSDIE A MISTAKE")
 }
 func main() {
 	log.Println("HELLO")
-	var secret = "aftasvqweqweqwd"
-	Test(secret)
+	var password = "aftasvqweqweqwd"
+	Test()
 }
