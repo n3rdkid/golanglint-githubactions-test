@@ -17,6 +17,7 @@ jobs:
           args: ./...
   build:
     name: Build 
+    needs: sec_check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 
