@@ -10,6 +10,6 @@ func Test() {
 }
 func main() {
 	log.Println("HELLO")
-	var abc = 123
+	// var abc = 123
 	app.Testtt()
 }

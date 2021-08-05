@@ -23,5 +23,9 @@ jobs:
 
       - name : Static check
         run: go get honnef.co/go/tools/cmd/staticcheck
-      - run: $(go env GOPATH)/bin/staticcheck ./...
+      - run: $(go env GOPATH)/bin/staticcheck ./... 
 
+      - name: Run Gosec Security Scanner
+        uses: securego/gosec@master
+        with:
+          args: ./...
