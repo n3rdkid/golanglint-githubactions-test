@@ -7,8 +7,6 @@ jobs:
   build:
     name: Build 
     runs-on: ubuntu-latest
-    env:
-      GO111MODULE: on
     steps:
       - uses: actions/checkout@v2 
 
@@ -27,11 +25,11 @@ jobs:
         run: go get honnef.co/go/tools/cmd/staticcheck
       - run: $(go env GOPATH)/bin/staticcheck ./... 
 
-      # - name : GO security check manually
-      #   run : go get -u github.com/securego/gosec/v2/cmd/gosec
-      # - run : $(go env GOPATH)/bin/gosec ./... 
+      - name : GO security check manually
+        run : go get -u github.com/securego/gosec/v2/cmd/gosec
+      - run : $(go env GOPATH)/bin/gosec ./... 
 
-      - name: Run Gosec Security Scanner
-        uses: securego/gosec@master
-        with:
-          args: ./...
+      # - name: Run Gosec Security Scanner
+      #   uses: securego/gosec@master
+      #   with:
+      #     args: ./...

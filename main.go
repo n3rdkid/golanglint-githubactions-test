@@ -2,14 +2,13 @@ package main
 
 import (
 	"log"
-	"saurav-test/app"
 )
 
-func Test() {
-	log.Println("THIS IS INSDIE A MISTAKE")
+func Test(secret string) {
+	log.Println("THIS IS INSDIE A MISTAKE", secret)
 }
 func main() {
 	log.Println("HELLO")
-	// var abc = 123
-	app.Testtt()
+	var secret = "aftasvqweqweqwd"
+	Test(secret)
 }
