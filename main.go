@@ -9,7 +9,7 @@ func Test() {
 }
 func main() {
 	log.Println("HELLO")
-	var password = "aftasvqweqweqwd" //lint:ignore
-	var abc = 2                      //lint:ignore
+	var password = "aftasvqweqweqwd" // nolint:staticcheck
+	var abc = 2                      // nolint:staticcheck
 	Test()
 }
