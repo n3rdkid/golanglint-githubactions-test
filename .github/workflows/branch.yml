@@ -4,21 +4,21 @@ on:
   push:
 
 jobs:
-  static_check:
-    name: Perform Static check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use golang ${{matrix.go-version}}
-        uses: actions/setup-go@v2
-        with:
-          go-version: "^1.16"
+  # static_check:
+  #   name: Perform Static check
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Use golang ${{matrix.go-version}}
+  #       uses: actions/setup-go@v2
+  #       with:
+  #         go-version: "^1.16"
 
-      - run: go version
+  #     - run: go version
 
-      - uses: dominikh/staticcheck-action@v1.2.0
-        with:
-          install-go: false
+  #     - uses: dominikh/staticcheck-action@v1.2.0
+  #       with:
+  #         install-go: false
 
   sec_check:
     name : Perform Security check
@@ -28,10 +28,10 @@ jobs:
       GO111MODULE: on
     steps:
       - uses: actions/checkout@v2 
-      # - name: Run Gosec Security Scanner
-      #   uses: securego/gosec@master
-      #   with:
-      #     args: ./...
+      - name: Run Gosec Security Scanner
+        uses: securego/gosec@master
+        with:
+          args: ./...
   build:
     name: Build 
     needs: sec_check
