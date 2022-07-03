@@ -20,21 +20,20 @@ jobs:
   #       with:
   #         install-go: false
 
-  sec_check:
-    name : Perform Security check
-    runs-on: ubuntu-latest
-    # needs: static_check
-    env:
-      GO111MODULE: on
-    steps:
-      - uses: actions/checkout@v2 
-      - name: Run Gosec Security Scanner
-        uses: securego/gosec@master
-        with:
-          args: ./...
+  # sec_check:
+  #   name : Perform Security check
+  #   runs-on: ubuntu-latest
+  #   # needs: static_check
+  #   env:
+  #     GO111MODULE: on
+  #   steps:
+  #     - uses: actions/checkout@v2 
+  #     - name: Run Gosec Security Scanner
+  #       uses: securego/gosec@master
+  #       with:
+  #         args: ./...
   build:
     name: Build 
-    needs: sec_check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 
