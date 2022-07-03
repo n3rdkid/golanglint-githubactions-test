@@ -23,7 +23,7 @@ jobs:
   sec_check:
     name : Perform Security check
     runs-on: ubuntu-latest
-    needs: static_check
+    # needs: static_check
     env:
       GO111MODULE: on
     steps:
