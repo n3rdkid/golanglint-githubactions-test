@@ -19,7 +19,7 @@ linters-settings:
 linters:
   disable-all: true
   enable:
-    - bodyclose
+    # - bodyclose
     # - deadcode
     # - depguard
     # - errcheck
@@ -46,4 +46,4 @@ linters:
     # - varcheck
 
 run:
-  issues-exit-code: 1
+  issues-exit-code: 0
