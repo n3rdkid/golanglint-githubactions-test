@@ -22,7 +22,7 @@ linters:
     # - bodyclose
     # - deadcode
     # - depguard
-    # - errcheck
+    - errcheck
     # - exportloopref
     # - goconst
     # - gocritic
