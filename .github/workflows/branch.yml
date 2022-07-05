@@ -49,14 +49,14 @@ jobs:
         with:
           skip-go-installation: true
 
-      - name : Static check
-        run: go get honnef.co/go/tools/cmd/staticcheck
-      - run: $(go env GOPATH)/bin/staticcheck ./... 
+      # - name : Static check
+      #   run: go get honnef.co/go/tools/cmd/staticcheck
+      # - run: $(go env GOPATH)/bin/staticcheck ./... 
 
-      - name : GO security check manually
-        run : |
-           go get -u github.com/securego/gosec/v2/cmd/gosec
-           go get -d
+      # - name : GO security check manually
+      #   run : |
+      #      go get -u github.com/securego/gosec/v2/cmd/gosec
+      #      go get -d
 
       # - run : $(go env GOPATH)/bin/gosec ./... 
 

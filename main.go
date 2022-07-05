@@ -9,7 +9,7 @@ func Test() {
 }
 func main() {
 	log.Println("HELLO")
-	var password = "aftasvqweqweqwd"
-	var abc = 2
+	// var password = "aftasvqweqweqwd" //nolint
+	var abc = 2 //nolint
 	Test()
 }
