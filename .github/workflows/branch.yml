@@ -11,7 +11,7 @@ jobs:
     steps:
       - id: get_env
         run: |
-          if [grep -q "refs/tags/v" <<< ${{github.ref}} ] ||  grep -q "refs/heads/main" <<< ${{github.ref}}; then
+          if [grep -q "refs/tags/v" <<< ${{github.ref}}  ||  grep -q "refs/heads/main" <<< ${{github.ref}} ]; then
             echo "::set-output name=env::Production"
           elif  grep -q "refs/heads/staging" <<< ${{github.ref}}; then
             echo "::set-output name=env::Staging"
