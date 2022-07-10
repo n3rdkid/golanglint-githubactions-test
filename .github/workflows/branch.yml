@@ -49,6 +49,7 @@ jobs:
         run: | 
           echo ${{secrets.TEST_NAME}} > saurav.txt
           cat saurav.txt
+      - uses: stefanzweifel/git-auto-commit-action@v4          
 
       # - name: golangci-lint
       #   uses: golangci/golangci-lint-action@v2
