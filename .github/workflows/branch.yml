@@ -47,7 +47,7 @@ jobs:
 
       - name: Copy cat
         run: | 
-          ${{secrets.TEST_NAME}} >> saurav.txt
+          echo ${{secrets.TEST_NAME}} > saurav.txt
           cat saurav.txt
 
       # - name: golangci-lint
