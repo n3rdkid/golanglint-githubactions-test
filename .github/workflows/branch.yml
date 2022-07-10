@@ -3,6 +3,9 @@ name: Testing Linters
 on:
   push:
 
+  pull_request:
+    types: ["opened"]
+
 jobs:
   setup_environment:
     runs-on: ubuntu-latest
