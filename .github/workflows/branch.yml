@@ -21,6 +21,7 @@ jobs:
       - id: print_env
         name: Print environment
         run: echo  "Environment :- ${{ steps.get_env.outputs.env }}"
+        
   # static_check:
   #   name: Perform Static check
   #   runs-on: ubuntu-latest
