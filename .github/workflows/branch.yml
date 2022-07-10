@@ -4,6 +4,23 @@ on:
   push:
 
 jobs:
+  setup_environment:
+    runs-on: ubuntu-latest
+    outputs:
+      env_name: ${{ steps.get_env.outputs.env }}
+    steps:
+      - id: get_env
+        run: |
+          if grep -q "refs/tags/v" <<< ${{github.ref}}; then
+            echo "::set-output name=env::Production"
+          elif  grep -q "refs/heads/staging" <<< ${{github.ref}}; then
+            echo "::set-output name=env::Staging"
+          else
+            echo "::set-output name=env::Development"
+          fi
+      - id: print_env
+        name: Print environment
+        run: echo  "Environment :- ${{ steps.get_env.outputs.env }}"
   # static_check:
   #   name: Perform Static check
   #   runs-on: ubuntu-latest
@@ -35,7 +52,8 @@ jobs:
   build:
     name: Build 
     runs-on: ubuntu-latest
-    environment: development
+    needs: setup_environment
+    environment: ${{needs.setup_environment.outputs.env_name}}
     steps:
       - uses: actions/checkout@v2 
 
