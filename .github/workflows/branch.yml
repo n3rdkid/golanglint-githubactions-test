@@ -13,7 +13,7 @@ jobs:
     steps:
       - id: get_env
         run: |
-          if ${{contains('${{env.GITHUB_REF}}', android-prod)}}; then
+          if grep -q "app-dev" <<< ${{github.ref}}; then
             echo "::set-output name=env::prod"
           else 
             echo "::set-output name=env::dev"
