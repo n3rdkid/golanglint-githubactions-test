@@ -4,43 +4,7 @@ on:
   push:
 
 jobs:
-  sec_check:
-    name : Perform Security check
-    runs-on: ubuntu-latest
-    env:
-      GO111MODULE: on
-    steps:
-      - uses: actions/checkout@v2 
-      # - name: Run Gosec Security Scanner
-      #   uses: securego/gosec@master
-      #   with:
-      #     args: ./...
-  build:
-    name: Build 
-    needs: sec_check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2 
+  setup_environment:
+  runs-on: ubuntu-latest
 
-      - name: Use golang ${{matrix.go-version}}
-        uses: actions/setup-go@v2
-        with:
-          go-version: '^1.13.1'
-      - run: go version
-
-      # - name: golangci-lint
-      #   uses: golangci/golangci-lint-action@v2
-      #   with:
-      #     skip-go-installation: true
-
-      - name : Static check
-        run: go get honnef.co/go/tools/cmd/staticcheck
-      - run: $(go env GOPATH)/bin/staticcheck ./... 
-
-      - name : GO security check manually
-        run : |
-           go get -u github.com/securego/gosec/v2/cmd/gosec
-           go get -d
-
-      # - run : $(go env GOPATH)/bin/gosec ./... 
-
+   
