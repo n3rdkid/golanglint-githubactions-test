@@ -13,13 +13,12 @@ jobs:
     steps:
       - id: get_env
         run: |
-          if grep -q "refs/tags/v" <<< ${{env.GITHUB_REF}}  ||  grep -q "refs/heads/main" <<< ${{env.GITHUB_REF}}; then
-            echo "::set-output name=env::Production"
-          elif  grep -q "refs/heads/staging" <<< ${{env.GITHUB_REF}}; then
-            echo "::set-output name=env::Staging"
-          else
-            echo "::set-output name=env::Development"
+          if ${{contains('${{env.GITHUB_REF}}', android-prod)}}; then
+            echo "::set-output name=env::prod"
+          else 
+            echo "::set-output name=env::dev"
           fi
+
       - id: print_env
         name: Print environment
         run: |
