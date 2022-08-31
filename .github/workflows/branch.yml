@@ -8,12 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       env_name: ${{ steps.get_env.outputs.env }}
+    env:
+      GITHUB_REF: ${{ github.ref }}
     steps:
       - id: get_env
         run: |
-          if grep -q "refs/tags/v" <<< ${{github.ref}}  ||  grep -q "refs/heads/main" <<< ${{github.ref}}; then
+          if grep -q "refs/tags/v" <<< $GITHUB_REF  ||  grep -q "refs/heads/main" <<< $GITHUB_REF; then
             echo "::set-output name=env::Production"
-          elif  grep -q "refs/heads/staging" <<< ${{github.ref}}; then
+          elif  grep -q "refs/heads/staging" <<< $GITHUB_REF; then
             echo "::set-output name=env::Staging"
           else
             echo "::set-output name=env::Development"
