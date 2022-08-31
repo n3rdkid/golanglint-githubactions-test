@@ -22,7 +22,15 @@ jobs:
           fi
       - id: print_env
         name: Print environment
-        run: echo  "Environment :- ${{ steps.get_env.outputs.env }}"
+        run: |
+          echo  "Environment :- ${{ steps.get_env.outputs.env }}"
+          echo "test hello hello" > test.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: myfilepath
+          path: test.txt
         
   # static_check:
   #   name: Perform Static check
