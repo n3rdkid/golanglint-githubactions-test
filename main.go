@@ -10,5 +10,6 @@ func Test() {
 func main() {
 	log.Println("HELLO")
 	var password = "aftasvqweqweqwd"
+	var abc = 2
 	Test()
 }
