@@ -14,9 +14,9 @@ jobs:
       - id: get_env
         run: |
           if grep -q "app-dev" <<< ${{github.ref}}; then
-            echo "::set-output name=env::prod"
+            echo "env=prod" >> $GITHUB_OUTPUT
           else 
-            echo "::set-output name=env::dev"
+            echo "env=dev" >> $GITHUB_OUTPUT
           fi
 
       - id: print_env
